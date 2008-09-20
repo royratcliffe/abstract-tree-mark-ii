@@ -11,6 +11,7 @@
 {
 	IBOutlet NSWindow *window;
 	IBOutlet NSOutlineView *outlineView;
+	IBOutlet NSTreeController *treeController;
 }
 
 - (IBAction)saveAction:(id)sender;
