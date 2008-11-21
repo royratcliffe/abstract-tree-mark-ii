@@ -50,7 +50,7 @@ static NSString *kAbstractTreeNodeType = @"AbstractTreeNodeType";
 	// key contains an integer value specifying the order. Although moving items
 	// around does not re-sort, initial ordering necessarily applies the given
 	// sort descriptors.
-	[treeController setSortDescriptors:[NSArray arrayWithObjects:[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES] autorelease], nil]];
+	[treeController setSortDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES] autorelease]]];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
@@ -134,7 +134,7 @@ static NSString *kAbstractTreeNodeType = @"AbstractTreeNodeType";
 		indexPath = [[item indexPath] indexPathByAddingIndex:index];
 	}
 	[treeController moveNode:[[treeController arrangedObjects] descendantNodeAtIndexPath:[NSKeyedUnarchiver unarchiveObjectWithData:[[info draggingPasteboard] dataForType:kAbstractTreeNodeType]]] toIndexPath:indexPath];
-	[treeController orderRepresentedObjectsForKey:@"order"];
+	[treeController orderRepresentedObjectsOfDescendantNodesForKey:@"order"];
 	return YES;
 }
 
